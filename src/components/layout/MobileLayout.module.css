@@ -1,0 +1,3 @@
+.mobileLayout{display:flex;flex-direction:column;height:100vh;background:var(--bg-primary)}
+.main{flex:1;overflow:auto;padding:12px 12px 72px}
+.content{max-width:100%;margin:0 auto}

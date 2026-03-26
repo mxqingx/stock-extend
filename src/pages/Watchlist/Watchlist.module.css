@@ -1,0 +1,1152 @@
+/* 自选管理页样式 */
+
+.profit-history-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+.watchlist {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--spacing-xl);
+  min-height: calc(100vh - var(--header-height) - var(--spacing-xl) * 2);
+}
+
+/* 侧边栏 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.sidebarHeader {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.sidebarHeader h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.groupList {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-sm);
+}
+
+.groupItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.groupItem:hover {
+  background: var(--bg-tertiary);
+}
+
+.groupItem.active {
+  background: var(--color-accent-bg);
+}
+
+/* 列名统一使用 camelCase */
+.colName {
+  flex: 2;
+  min-width: 0;
+}
+
+.colCode {
+  width: 80px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-align: center;
+}
+
+.colPrice {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.colProfit {
+  width: 120px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.colProfitPercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.colChangePercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* ---------- ProfitHistoryModal 表格样式 ---------- */
+/* 表头使用横向布局 */
+.profit-history-table .table-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  /* 与表体行保持一致的水平内边距，保证列对齐 */
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-primary);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  /* 保证表头在滚动时固定在顶部（与 camelCase 版本一致） */
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  z-index: 10;
+}
+
+/* 表体每行使用横向布局 */
+.profit-history-table .table-body .table-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-secondary);
+  transition: background var(--transition-fast);
+}
+
+.profit-history-table .table-body .table-row:hover {
+  background: var(--bg-tertiary);
+}
+
+
+.groupActions {
+  display: none;
+  gap: var(--spacing-xs);
+}
+
+.groupItem:hover .groupActions {
+  display: flex;
+}
+
+.groupItem:hover .groupCount {
+  display: none;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.actionBtn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.groupInput {
+  flex: 1;
+  padding: 2px var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-focus);
+  border-radius: var(--radius-sm);
+}
+
+.addGroup {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border-primary);
+}
+
+.addGroupInput {
+  flex: 1;
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+}
+
+.addGroupInput:focus {
+  border-color: var(--border-focus);
+}
+
+/* 主区域 */
+.main {
+  min-width: 0;
+}
+
+.mainActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.stockCount {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+/* 表格 */
+.stockTable {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-primary);
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-secondary);
+  cursor: pointer;
+}
+
+.tableRow:hover:not(.fluctuating-rise):not(.fluctuating-fall) {
+  background: var(--bg-tertiary);
+  margin: 0 calc(-1 * var(--spacing-lg));
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.colName {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 2;
+}
+
+.stockName {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stockCode {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--text-tertiary);
+}
+
+.colPrice {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  width: 80px;
+}
+
+.colChange {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  width: 70px;
+}
+
+.colAmount {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  width: 80px;
+}
+
+.colTurnover {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  width: 60px;
+}
+
+/* 新增列：代码 */
+.col-code {
+  width: 80px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-align: center;
+}
+
+.colCost,
+.colQuantity,
+.colProfit,
+.colRatio {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+}
+
+.colCost {
+  width: 90px;
+}
+
+.colQuantity {
+  width: 90px;
+}
+
+.colProfit {
+  width: 90px;
+}
+
+.colRatio {
+  width: 70px;
+}
+
+.positionInput {
+  width: 100%;
+  height: 28px;
+  padding: 0 var(--spacing-xs);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+}
+
+.positionInput:focus {
+  border-color: var(--color-accent);
+}
+
+.colAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+}
+
+.removeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--text-tertiary);
+  border-radius: var(--radius-sm);
+  opacity: 0;
+  transition: all var(--transition-fast);
+}
+
+.tableRow:hover .removeBtn {
+  opacity: 1;
+}
+
+.removeBtn:hover {
+  color: var(--color-error);
+  background: var(--color-fall-bg);
+}
+
+/* 工具按钮 */
+.toolBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  background: var(--bg-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.toolBtn:hover {
+  color: var(--text-primary);
+  background: var(--border-primary);
+}
+
+.toolBtn.active {
+  color: var(--color-accent);
+  background: var(--color-accent-bg);
+}
+
+/* 排序栏 */
+.sortBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.profitSummary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.summaryItem {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.summaryItem.today-profit {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  color: var(--text-primary);
+  padding: var(--spacing-sm);
+  background: var(--color-accent-bg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  min-width: 140px;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.summaryItem.today-profit.fluctuating {
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* 历史收益按钮 */
+.historyBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+}
+
+.historyBtn:hover {
+  background: var(--color-accent-bg);
+  border-color: var(--color-accent);
+}
+
+.historyBtn svg {
+  flex-shrink: 0;
+}
+
+/* 股价波动动画 */
+.fluctuating {
+  animation: fluctuate 300ms ease-in-out;
+}
+
+@keyframes fluctuate {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  50% {
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* 渐入渐出动画 - 上涨 */
+@keyframes fadeInOutRise {
+  0% {
+    background-color: transparent;
+  }
+  25% {
+    background-color: rgba(255, 100, 100, 0.25);
+  }
+  75% {
+    background-color: rgba(255, 100, 100, 0.25);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* 渐入渐出动画 - 下跌 */
+@keyframes fadeInOutFall {
+  0% {
+    background-color: transparent;
+  }
+  25% {
+    background-color: rgba(100, 255, 100, 0.25);
+  }
+  75% {
+    background-color: rgba(100, 255, 100, 0.25);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.fluctuating-rise {
+  animation: fadeInOutRise 500ms ease-in-out;
+}
+
+.fluctuating-fall {
+  animation: fadeInOutFall 500ms ease-in-out;
+}
+
+.historyPanel {
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.historyHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xs);
+}
+
+.historyTitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.historyDateInput {
+  height: 28px;
+  padding: 0 var(--spacing-xs);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  font-size: var(--font-size-xs);
+}
+
+.historyValue {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+}
+
+.historyList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--spacing-xs) var(--spacing-md);
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-mono);
+}
+
+.historyDate {
+  color: var(--text-tertiary);
+}
+
+.sortSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--text-tertiary);
+}
+
+.sortLabel {
+  font-size: var(--font-size-xs);
+}
+
+.sortOption {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.sortOption:hover {
+  color: var(--text-primary);
+  background: var(--border-primary);
+}
+
+.sortOption.active {
+  color: var(--color-accent);
+  background: var(--color-accent-bg);
+}
+
+/* 批量操作区 */
+.batchSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.selectAllBtn {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.selectAllBtn:hover {
+  color: var(--text-primary);
+  background: var(--border-primary);
+}
+
+.batchDeleteBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: white;
+  background: var(--color-error);
+  transition: all var(--transition-fast);
+}
+
+.batchDeleteBtn:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.batchDeleteBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 选择列 */
+.colSelect {
+  display: flex;
+  align-items: center;
+  width: 32px;
+}
+
+.selectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  transition: color var(--transition-fast);
+}
+
+.selectBtn:hover {
+  color: var(--color-accent);
+}
+
+.tableRow.selected:not(.fluctuating-rise):not(.fluctuating-fall) {
+  background: var(--color-accent-bg);
+}
+
+.tableRow.selected .selectBtn {
+  color: var(--color-accent);
+}
+
+/* 拖拽列 */
+.colDrag {
+  display: flex;
+  align-items: center;
+  width: 24px;
+}
+
+.dragHandle {
+  color: var(--text-tertiary);
+  cursor: grab;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.tableRow:hover .dragHandle {
+  opacity: 1;
+}
+
+.tableRow.dragging:not(.fluctuating-rise):not(.fluctuating-fall) {
+  opacity: 0.5;
+  background: var(--bg-tertiary);
+}
+
+/* 导入弹窗 */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  margin: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.modalHeader h3 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modalClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.modalClose:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.modalBody {
+  padding: var(--spacing-lg);
+}
+
+.modalHint {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.importTextarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  resize: vertical;
+}
+
+.importTextarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-primary);
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .watchlist {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .tableHeader,
+  .table-header {
+    display: none;
+  }
+
+  .tableRow {
+    grid-template-columns: 1fr auto auto;
+    gap: var(--spacing-sm);
+  }
+
+  .colAmount,
+  .colTurnover,
+  .colDrag,
+  .colCost,
+  .colQuantity,
+  .colProfit,
+  .colRatio {
+    display: none;
+  }
+
+  .sortBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sortSection {
+    flex-wrap: wrap;
+  }
+}
+
+/* 历史收益弹窗 */
+.profit-history-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+.profit-history-modal-content {
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.profit-history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.profit-history-header h3 {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.profit-history-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.summary-value {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.profit-history-table {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+.profit-history-table .tableHeader {
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  z-index: 10;
+}
+
+.profit-history-table .tableBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.profit-history-table .tableRow {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-secondary);
+  gap: var(--spacing-md);
+  transition: background var(--transition-fast);
+}
+
+/* 兼容 JSX 中使用的 kebab-case 类名 */
+.profit-history-table .table-row {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-secondary);
+  gap: var(--spacing-md);
+  transition: background var(--transition-fast);
+}
+
+.profit-history-table .tableRow:hover {
+  background: var(--bg-tertiary);
+}
+
+.profit-history-table .colName {
+  flex: 2;
+  min-width: 0;
+}
+
+.profit-history-table .colProfit {
+  width: 120px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .colPrice {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .colProfitPercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .colChangePercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+/* kebab-case column classes used directly in JSX rows */
+.profit-history-table .col-price {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .col-profit {
+  width: 120px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .col-profitPercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .col-changePercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .col-changePercent {
+  width: 100px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.profit-history-table .stockName {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+.profit-history-table .stockCode {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.profit-history-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-primary);
+}
+
+/* H5适配 */
+@media (max-width: 768px) {
+  .profit-history-modal {
+    padding: var(--spacing-sm);
+  }
+
+  .profit-history-modal-content {
+    max-height: 95vh;
+    max-width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .profit-history-header {
+    padding: var(--spacing-md);
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+
+  .profit-history-header h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: var(--spacing-md);
+    top: var(--spacing-md);
+  }
+
+  .profit-history-summary {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .summary-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .summary-value {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+  }
+
+  .profit-history-table {
+    max-height: 400px;
+  }
+
+  .profit-history-table .tableHeader,
+  .profit-history-table .table-header {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .profit-history-table .tableBody,
+  .profit-history-table .table-body {
+    padding: 0;
+  }
+
+  .profit-history-table .tableRow,
+  .profit-history-table .table-row {
+    padding: var(--spacing-sm);
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .profit-history-table .col-name {
+    min-width: 120px;
+    flex: 1;
+  }
+
+  .profit-history-table .col-price {
+    width: 90px;
+    font-size: var(--font-size-sm);
+  }
+
+  .profit-history-table .col-profit {
+    width: 100px;
+    font-size: var(--font-size-sm);
+  }
+
+  .profit-history-table .col-profitPercent {
+    width: 80px;
+    font-size: var(--font-size-sm);
+  }
+
+  .profit-history-table .col-changePercent {
+    width: 80px;
+    font-size: var(--font-size-sm);
+  }
+
+  .profit-history-footer {
+    padding: var(--spacing-md);
+    flex-direction: column-reverse;
+    gap: var(--spacing-sm);
+  }
+
+  .profit-history-footer button {
+    width: 100%;
+  }
+}

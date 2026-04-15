@@ -21,6 +21,7 @@
     "@grafana/faro-react": "^2.1.0",
     "@grafana/faro-web-sdk": "^2.1.0",
     "@grafana/faro-web-tracing": "^2.1.0",
+    "@tarojs/plugin-framework-react": "^4.1.11",
     "echarts": "^6.0.0",
     "echarts-for-react": "^3.0.5",
     "framer-motion": "^12.26.0",
